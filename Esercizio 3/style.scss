@@ -1,0 +1,42 @@
+
+
+@mixin bounce( $start: 0px, $distance: -30px) {
+
+    @keyframes bouncing {
+   
+        0%, 50%, 100% {transform: translateY($start);}
+        20%, 60% {transform: translateY( calc($distance/2));}
+        40% {transform: translateY($distance);}       
+        
+    }
+    background: blue;
+    animation-name: bouncing;
+    animation-duration: 1s;    
+}
+
+
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    height: 100vh;
+
+    .example{
+        height: 200px;
+        width: 200px;
+        margin: 4rem;
+        background: red;
+
+    }
+    .bounce{
+               
+        &:hover{
+            @include bounce();
+        }
+    
+    }
+}
