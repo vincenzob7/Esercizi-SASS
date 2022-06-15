@@ -1,0 +1,37 @@
+@function random-hex(){
+    $color: '#';
+
+    $i: 0;
+
+    @while $i<=5 {
+        
+       $number: random($limit: 15);
+       @if $number == 10 {
+          $color: $color + "A";
+       }
+       @else if $number == 11{
+          $color: $color + "B";
+       }
+       @else if $number == 12{
+          $color: $color + "C";
+       }
+       @else if $number == 13{
+          $color: $color + "D";
+       }
+       @else if $number == 14{
+          $color: $color + "E";
+       }
+       @else if $number == 15{
+          $color: $color + "F";
+       }
+       @else {
+          $color: $color + $number;
+       }
+
+       $i: $i + 1;
+
+    }
+
+    
+ @return unquote($string: $color); 
+}
