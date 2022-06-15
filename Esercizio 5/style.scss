@@ -1,0 +1,30 @@
+@use 'color-random';
+
+
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    height: 100vh;
+
+    .columns{
+
+        height: 100%;
+        display: grid;
+        grid-template-columns: repeat(12, 1fr);   
+        
+        .col{
+            $i: 0;
+            @while $i < 13 {
+                &:nth-child(#{$i}){
+                        background-color: color-random.random-hex();
+                        $i: $i + 1;
+                    } 
+                } 
+        }
+    }
+  
+}
