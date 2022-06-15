@@ -1,0 +1,46 @@
+.exercise h2, .exercise .exercise-title {
+  color: green;
+  text-align: center;
+}
+
+.exercise {
+  border: 1px solid red;
+}
+.exercise .exercise-title {
+  text-decoration: underline;
+  text-decoration-color: blue;
+}
+.exercise h2 {
+  border: 1px solid red;
+  margin: auto;
+  width: max-content;
+  padding: 1rem;
+}
+.exercise .first-section {
+  display: flex;
+  margin: 1rem;
+}
+.exercise .first-section article p {
+  padding: 1rem;
+}
+.exercise .first-section article:nth-of-type(odd) {
+  border: 1px solid green;
+  color: blue;
+  font-size: 1rem;
+}
+.exercise .first-section article:nth-of-type(even) {
+  border: 1px solid green;
+  color: red;
+  font-size: 1rem;
+}
+.exercise .second-section {
+  padding: 1rem;
+}
+.exercise .second-section article {
+  border: 1px solid blue;
+  color: green;
+  font-size: 24px;
+  text-align: center;
+}
+
+/*# sourceMappingURL=style.css.map */
