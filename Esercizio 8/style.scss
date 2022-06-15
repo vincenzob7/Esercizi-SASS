@@ -1,0 +1,135 @@
+$color-primary: red;
+$color-secondary: blue;
+$color-tertiary: green;
+$size-font-art: 1rem; 
+$footer-size: 24px;
+$first-color: white;
+$last-color: black;
+
+@mixin articles ($color-art, $border-color,$font-art) {
+    border: 1px solid $border-color;
+    color: $color-art;
+    font-size: $font-art;    
+}
+
+%title{
+    color: $color-tertiary;
+    display: flex;
+    justify-content: center;
+}
+
+
+@function rem($pixels){
+    @return calc($pixels/16px*1rem) 
+}
+
+
+
+
+
+
+body{
+
+    height: 100vh;
+
+
+    .exercise {
+        border: 1px solid $color-primary; 
+        display: flex;
+        flex-direction: column;
+        
+        .exercise-title {          
+           @extend %title;
+           text-decoration: underline;
+           text-decoration-color: $color-secondary;
+       } 
+   
+       h2{
+           @extend %title;
+           border: 1px solid $color-primary;
+           margin: auto;
+           width: max-content;
+           padding: 1rem;        
+       }  
+          
+       .first-section{
+           display: flex;
+           margin: 1rem;
+           article{
+               p{
+                  padding: 0.5rem;
+               }
+   
+               &:nth-of-type(odd){
+                  @include articles($color-secondary, $color-tertiary, $size-font-art);
+               }
+       
+               &:nth-of-type(even){
+                  @include articles($color-primary, $color-tertiary, $size-font-art);
+               }
+           }
+           
+           
+       }
+   
+       .second-section{
+           display: flex;
+           gap: 0.8rem;
+           justify-content: center;
+           flex-wrap: wrap;
+   
+   
+           div{
+               height: rem(45px);
+               width: rem(45px);
+               min-width: rem(45px);
+               border: rem(1px) solid $color-primary;
+              
+               $amount: 5;
+               @for $var from 1 to 20 { 
+       
+                 @if $var == 10 { 
+                   &:nth-of-type(#{$var}){
+                       background-color: $color-secondary;
+                       color: $color-primary;
+                       font-weight: bold;
+                       
+                   }
+           
+                 } 
+                 @else {
+                   &:nth-of-type(#{$var}){
+                       background-color: darken($first-color, $amount);
+                       color: lighten($last-color, $amount);
+                   }
+                   
+                 }  
+               $amount: $amount + 5;
+               }        
+           }
+           
+           
+   
+           $values: 1rem, 2rem, 3rem;
+   
+           @each $value in $values {
+   
+           .fs-#{$value}{
+              font-size: $value;
+           }  
+           }
+       }
+       .third-section{
+           padding: 1rem;
+           article{
+               @include articles($color-tertiary, $color-secondary,$footer-size);
+               display: flex;;
+               justify-content: center;
+               padding: 0.8rem;
+           }
+       }
+   }
+
+
+
+}
