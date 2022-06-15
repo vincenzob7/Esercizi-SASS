@@ -1,0 +1,48 @@
+@use 'variabili';
+@use 'px-to-rem';
+
+@mixin articles ($color-art, $border-color,$font-art) {
+    border: px-to-rem.rem(1px) solid $border-color;
+    color: $color-art;
+    font-size: $font-art;    
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.exercise {
+     border: px-to-rem.rem(1px) solid variabili.$color-primary; 
+     .exercise-title {
+          color: variabili.$color-tertiary;
+          text-align: center;
+          text-decoration: underline;
+          text-decoration-color: variabili.$color-secondary;
+         } 
+    .first-section{
+        display: flex;
+        margin: 1rem;
+        article{
+            p{
+                padding: 1rem;
+            }
+        }
+        
+        article:nth-of-type(odd){
+            @include articles(variabili.$color-secondary, variabili.$color-tertiary, variabili.$size-font-art);
+        }
+
+        article:nth-of-type(even){
+            @include articles(variabili.$color-primary, variabili.$color-tertiary, variabili.$size-font-art);
+        }
+    }
+
+    .second-section{
+        padding: 1rem;
+        article{
+            @include articles(variabili.$color-tertiary, variabili.$color-secondary, px-to-rem.rem(variabili.$footer-size));
+            text-align: center;
+        }
+    }
+}
