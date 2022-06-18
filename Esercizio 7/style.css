@@ -21,7 +21,7 @@ body .bg-random {
   justify-content: center;
   align-items: center;
 }
-body .bounce:hover {
+body .bounce {
   animation-name: bouncing;
   animation-duration: 1s;
   animation-delay: 0;
